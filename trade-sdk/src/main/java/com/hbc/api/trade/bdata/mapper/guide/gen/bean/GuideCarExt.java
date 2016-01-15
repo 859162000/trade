@@ -1,0 +1,269 @@
+package com.hbc.api.trade.bdata.mapper.guide.gen.bean;
+
+import java.util.Date;
+
+public class GuideCarExt {
+    /**
+     *  
+     *  所属表字段为`guide_car_ext`.guide_car_ext_id
+     */
+    private Integer guideCarExtId;
+
+    /**
+     *  车辆id
+     *  所属表字段为`guide_car_ext`.car_id
+     */
+    private Integer carId;
+
+    /**
+     *  冗余
+     *  所属表字段为`guide_car_ext`.car_brand_id
+     */
+    private Integer carBrandId;
+
+    /**
+     *  冗余
+     *  所属表字段为`guide_car_ext`.car_brand_name
+     */
+    private Integer carBrandName;
+
+    /**
+     *  冗余，级别。1-经济型；2-舒适型；3-豪华型；4-奢华型
+     *  所属表字段为`guide_car_ext`.car_type
+     */
+    private Integer carType;
+
+    /**
+     *  冗余，车型座位数分类。1-5座车系；2-7到9座车系；3-8到12座车系
+     *  所属表字段为`guide_car_ext`.car_class
+     */
+    private Integer carClass;
+
+    /**
+     *  
+     *  所属表字段为`guide_car_ext`.update_time
+     */
+    private Date updateTime;
+
+    /**
+     *  
+     *  所属表字段为`guide_car_ext`.create_time
+     */
+    private Date createTime;
+
+    /**
+     *
+     *`guide_car_ext`.guide_car_ext_id
+     *
+     * @return the value of `guide_car_ext`.guide_car_ext_id
+     *
+     * @mbggenerated
+     */
+    public Integer getGuideCarExtId() {
+        return guideCarExtId;
+    }
+
+    /**
+     *
+     *`guide_car_ext`.guide_car_ext_id
+     *
+     * @param guideCarExtId the value for `guide_car_ext`.guide_car_ext_id
+     *
+     * @mbggenerated
+     */
+    public void setGuideCarExtId(Integer guideCarExtId) {
+        this.guideCarExtId = guideCarExtId;
+    }
+
+    /**
+     *车辆id
+     *`guide_car_ext`.car_id
+     *
+     * @return the value of `guide_car_ext`.car_id
+     *
+     * @mbggenerated
+     */
+    public Integer getCarId() {
+        return carId;
+    }
+
+    /**
+     *车辆id
+     *`guide_car_ext`.car_id
+     *
+     * @param carId the value for `guide_car_ext`.car_id
+     *
+     * @mbggenerated
+     */
+    public void setCarId(Integer carId) {
+        this.carId = carId;
+    }
+
+    /**
+     *冗余
+     *`guide_car_ext`.car_brand_id
+     *
+     * @return the value of `guide_car_ext`.car_brand_id
+     *
+     * @mbggenerated
+     */
+    public Integer getCarBrandId() {
+        return carBrandId;
+    }
+
+    /**
+     *冗余
+     *`guide_car_ext`.car_brand_id
+     *
+     * @param carBrandId the value for `guide_car_ext`.car_brand_id
+     *
+     * @mbggenerated
+     */
+    public void setCarBrandId(Integer carBrandId) {
+        this.carBrandId = carBrandId;
+    }
+
+    /**
+     *冗余
+     *`guide_car_ext`.car_brand_name
+     *
+     * @return the value of `guide_car_ext`.car_brand_name
+     *
+     * @mbggenerated
+     */
+    public Integer getCarBrandName() {
+        return carBrandName;
+    }
+
+    /**
+     *冗余
+     *`guide_car_ext`.car_brand_name
+     *
+     * @param carBrandName the value for `guide_car_ext`.car_brand_name
+     *
+     * @mbggenerated
+     */
+    public void setCarBrandName(Integer carBrandName) {
+        this.carBrandName = carBrandName;
+    }
+
+    /**
+     *冗余，级别。1-经济型；2-舒适型；3-豪华型；4-奢华型
+     *`guide_car_ext`.car_type
+     *
+     * @return the value of `guide_car_ext`.car_type
+     *
+     * @mbggenerated
+     */
+    public Integer getCarType() {
+        return carType;
+    }
+
+    /**
+     *冗余，级别。1-经济型；2-舒适型；3-豪华型；4-奢华型
+     *`guide_car_ext`.car_type
+     *
+     * @param carType the value for `guide_car_ext`.car_type
+     *
+     * @mbggenerated
+     */
+    public void setCarType(Integer carType) {
+        this.carType = carType;
+    }
+
+    /**
+     *冗余，车型座位数分类。1-5座车系；2-7到9座车系；3-8到12座车系
+     *`guide_car_ext`.car_class
+     *
+     * @return the value of `guide_car_ext`.car_class
+     *
+     * @mbggenerated
+     */
+    public Integer getCarClass() {
+        return carClass;
+    }
+
+    /**
+     *冗余，车型座位数分类。1-5座车系；2-7到9座车系；3-8到12座车系
+     *`guide_car_ext`.car_class
+     *
+     * @param carClass the value for `guide_car_ext`.car_class
+     *
+     * @mbggenerated
+     */
+    public void setCarClass(Integer carClass) {
+        this.carClass = carClass;
+    }
+
+    /**
+     *
+     *`guide_car_ext`.update_time
+     *
+     * @return the value of `guide_car_ext`.update_time
+     *
+     * @mbggenerated
+     */
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    /**
+     *
+     *`guide_car_ext`.update_time
+     *
+     * @param updateTime the value for `guide_car_ext`.update_time
+     *
+     * @mbggenerated
+     */
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    /**
+     *
+     *`guide_car_ext`.create_time
+     *
+     * @return the value of `guide_car_ext`.create_time
+     *
+     * @mbggenerated
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     *
+     *`guide_car_ext`.create_time
+     *
+     * @param createTime the value for `guide_car_ext`.create_time
+     *
+     * @mbggenerated
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method corresponds to the database table `guide_car_ext`
+     *
+     * @mbggenerated
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", guideCarExtId=").append(guideCarExtId);
+        sb.append(", carId=").append(carId);
+        sb.append(", carBrandId=").append(carBrandId);
+        sb.append(", carBrandName=").append(carBrandName);
+        sb.append(", carType=").append(carType);
+        sb.append(", carClass=").append(carClass);
+        sb.append(", updateTime=").append(updateTime);
+        sb.append(", createTime=").append(createTime);
+        sb.append("]");
+        return sb.toString();
+    }
+}

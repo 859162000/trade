@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="15 seconds">
+	<property name="LOG_HOME" value="${logDir:-logs}" />
+	<property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %X{token:--} [%t] %C.%M\\(%L\\) | %m%n" />
+
+	<appender name="qunar" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_HOME}/qunar.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/qunar.log.%d</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>${PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="reqcost" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_HOME}/reqcost.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/reqcost.log.%d</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>${PATTERN}</pattern>
+		</encoder>
+	</appender>
+	
+	
+	<appender name="qua" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_HOME}/qua.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/qua.log.%d</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>${PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="ctrip" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_HOME}/ctrip.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/ctrip.log.%d</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>${PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="root" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_HOME}/project.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/project.log.%d</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>${PATTERN}</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="ELOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_HOME}/error.log</file>
+		<Encoding>UTF-8</Encoding>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>error.%i.log.zip</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>3</maxIndex>
+		</rollingPolicy>
+
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>1024MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印错误日志 -->
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+	
+	<logger name="com.hbc.api.trade.ota.order.mapping" level="DEBUG" />
+	<logger name="com.hbc.api.trade.ota.bdata.mapper" level="DEBUG" />
+	<logger name="com.hbc.api.fund.biz.mapping" level="DEBUG" />
+	<logger name="com.hbc.api.fund.account.mapping" level="DEBUG" />
+	<logger name="org.apache" level="WARN" />
+	
+	<logger name="com.hbc.api.trade.ota.aop" level="INFO" additivity="true">
+		<appender-ref ref="reqcost" />
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="root" />
+		<appender-ref ref="ELOG" />
+	</root>
+
+
+	<logger name="com.hbc.api.trade.ota.qua" level="INFO" additivity="true">
+		<appender-ref ref="qua" />
+	</logger>
+	<logger name="com.hbc.api.trade.ota.qunar" level="INFO" additivity="true">
+		<appender-ref ref="qunar" />
+	</logger>
+	<logger name="com.hbc.api.trade.ota.ctrip" level="INFO" additivity="true">
+		<appender-ref ref="ctrip" />
+	</logger>
+
+
+</configuration>
+

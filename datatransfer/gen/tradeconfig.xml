@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+	<!-- classPathEntry:数据库的JDBC驱动 -->
+	<classPathEntry location="D:\dev\hbc\sourcecode\mybatis-generator-usage\lib\mysql-connector-java-5.1.6-bin.jar" />
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" />
+		</plugin>
+		<plugin type="org.mybatis.generator.plugins.MySQLPaginationPlugin" >
+			<property name="pageClassPath" value="com.hbc.data.trade.transfer.util.Page"/>
+		</plugin>
+		<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<!-- 去除自动生成的注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.1.13:3307/trade" userId="lukangle" password="d1E40Cd615f33E63"> </jdbcConnection> 
+	<!-- 	<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/trade" userId="root" password="1">
+		</jdbcConnection> -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- targetProject:自动生成代码的位置 -->
+		<javaModelGenerator targetPackage="com.hbc.data.trade.transfer.mapping.trade.gen.bean" targetProject="D:\dev\hbc\svn\java\trade\trunk\datatransfer\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+
+		<sqlMapGenerator targetPackage="com.hbc.data.trade.transfer.mapping.trade.gen" targetProject="D:\dev\hbc\svn\java\trade\trunk\datatransfer\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+
+		<javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="com.hbc.data.trade.transfer.mapping.trade.gen" targetProject="D:\dev\hbc\svn\java\trade\trunk\datatransfer\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="exampleMethodVisibility" value="false" />
+		</javaClientGenerator>
+		<!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
+	
+		
+		
+		<table schema="" tableName="trade_additional_cost" domainObjectName="TradeAdditionalCost"></table>
+		<table schema="" tableName="trade_additional_detail" domainObjectName="TradeAdditionalDetail"></table>
+		<table schema="" tableName="trade_deliver" domainObjectName="TradeOrderDeliver"></table>
+		<table schema="" tableName="trade_deliver_guide" domainObjectName="TradeDeliverGuide"></table>
+		<table schema="" tableName="trade_guide_attitudinal" domainObjectName="TradeGuideAttitudinal"></table>
+		<table schema="" tableName="trade_loan" domainObjectName="TradeLoan"></table>
+		<table schema="" tableName="trade_notice" domainObjectName="TradeNotice"></table>
+		<table schema="" tableName="trade_order" domainObjectName="OrderBean"></table>
+		<table schema="" tableName="trade_order_log" domainObjectName="OrderLog"></table>
+		<table schema="" tableName="trade_order_serial" domainObjectName="TradeOrderSerial"></table>
+		<table schema="" tableName="trade_order_track" domainObjectName="TradeOrderTrack"></table>
+		<table schema="" tableName="trade_price_history" domainObjectName="TradePriceHistory"></table>
+		<table schema="" tableName="trade_route" domainObjectName="TradeRoute"></table>
+		<table schema="" tableName="trade_alarm" domainObjectName="TradeAlarm"></table>
+		
+		<table schema="" tableName="trade_third_order" domainObjectName="TradeThirdOrder"></table>
+		<table schema="" tableName="trade_third_order_log" domainObjectName="TradeThirdOrderLog"></table>
+		
+		<table schema="" tableName="trade_payment" domainObjectName="TradePayment"></table>
+		<table schema="" tableName="trade_refund" domainObjectName="TradeRefund"></table>
+		<table schema="" tableName="trade_refund_conf" domainObjectName="TradeRefundConf"></table>
+	</context>
+
+</generatorConfiguration>

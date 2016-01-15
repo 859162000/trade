@@ -1,0 +1,30 @@
+C端：
+http://api.huangbaoche.com/tradeservice/trade/v1/c/placePickupOrder?priceSale=100&priceMark=PF778525455&adultNum=2&childNum=2&childSeat=1-1,1-2&serviceAddressTel=14568975544&serviceAreaCode=86&serviceCityId=204&serviceTimeL=2015-10-27 11:35:00&startAddress= 仁川国际机场&startAddressDetail=仁川国际机场&startAddressPoi=31.17529769999999,121.64234140000008&destAddress=Grand Hilton Seoul&destAddressDetail=353 Yeonhui-ro, Seodaemun-gu, 서울특별시 韩国&destAddressPoi=37.588893,126.93405&distance=57.09&carTypeId=1&carSeatNum=4&carDesc=起亚K5,现代圣达菲,现代avante&userMobile1=15652694117&userRemark=一定送到啊&flightNo=CA123&flightAirportCode=GMP&flightAirportName=仁川国际机场&flightArriveTimeL=2015-10-07 08:30:00&flightIsCustom=0&flightAirportBuiding=T3&flightFlyTimeL=2015-10-07 09:35:00&userId=AUYI12938123890&isArrivalVisa=1&userAreaCode1=20
+订单详情：
+http://api.huangbaoche.com/tradeservice/trade/v1/c/orderdetail?orderNo=S1001441019664569426&userId=123
+订单列表：
+http://api.huangbaoche.com/tradeservice/trade/v1/c/orders?userId=123&orderShowType=1
+取消订单：
+http://api.huangbaoche.com/tradeservice/trade/v1/c/cancelorder?orderNo=S1001441019664569426&userId=123
+支付回调
+http://api.huangbaoche.com/tradeservice/trade/v1/c/payorderstate?orderNo=S1001441019664569426&userId=123
+确认订单
+http://api.huangbaoche.com/tradeservice/trade/v1/c/confirmorder?orderNo=S1001441019664569426&userId=123
+订单修改：
+http://api.huangbaoche.com/tradeservice/trade/v1/c/editorder?orderNo=S1001441019664569426&userId=123&adultNum=3&childNum=2&childSeat=1-1&serviceAddressTel=15110084594&serviceAreaCode=123&userName=续称&userMobile1=110-&userEmail=531751008@qq.com&orderType=3&userAreaCode1=2
+
+G端：
+
+http://api.huangbaoche.com/tradeservice/trade/v1/g/orders?guideId=7&orderShowType=1
+订单详情
+http://api.huangbaoche.com/tradeservice/trade/v1/g/orderdetail?orderNo=S1001441019664569426
+
+导游到达：
+http://api.huangbaoche.com/tradeservice/trade/v1/g/guidearrive?orderNo=S1001441019664569426
+接到客人：
+http://api.huangbaoche.com/tradeservice/trade/v1/ g/receivegust?orderNo=S1001441019664569426
+行程结束：
+http://api.huangbaoche.com/tradeservice/trade/v1/g/strokeend?orderNo=S1001441019664569426
+MIS：
+派单 指派导游
+http://api.huangbaoche.com/tradeservice/trade/v1/e/assignorder?guideId=7&orderNo=S1001441019664569426

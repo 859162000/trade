@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
+	<property name="LOG_HOME" value="${logDir:-logs}" /> 
+	<!-- 控制台输出 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- 日志输出编码 -->
+		<Encoding>UTF-8</Encoding>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</layout>
+	</appender>
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_HOME}/project.log</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>trade.%i.log.zip</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>3</maxIndex>
+		</rollingPolicy>
+
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>1024MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	<!-- 按照每天生成日志文件 -->
+	<!-- <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender"> <Encoding>UTF-8</Encoding> <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"> 日志文件输出的文件名 <file>${LOG_HOME}/trade.log</file> <MaxHistory>30</MaxHistory> </rollingPolicy> 
+		<layout class="ch.qos.logback.classic.PatternLayout"> 格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n </pattern> </layout> 日志文件最大的大小 <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy"> 
+		<MaxFileSize>1024MB</MaxFileSize> </triggeringPolicy> </appender> -->
+
+	<!-- show parameters for hibernate sql 专为 Hibernate 定制 -->
+	<appender name="payApd" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_HOME}/pay.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>pay.%i.log.zip</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>1024MB</maxFileSize>
+		</triggeringPolicy>
+	</appender>
+	<logger name="com.hbc.api.trade.ota.pay" level="INFO">
+		<appender-ref ref="payApd" />
+	</logger>
+	<!-- <logger name="com.hbc.api.trade.ota" level="INFO"> <appender-ref ref="STDOUT" /> </logger> <logger name="com.hbc.api.trade.ota" level="INFO"> <appender-ref ref="FILE" /> </logger> -->
+	<logger name="com.hbc.api.trade.ota.order.mapping" level="DEBUG" />
+	<logger name="com.hbc.api.trade.ota.bdata.mapper" level="DEBUG" />
+	<logger name="com.hbc.api.fund.biz.mapping" level="DEBUG" />
+	<logger name="com.hbc.api.fund.account.mapping" level="DEBUG" />
+	<logger name="org.apache" level="WARN" />
+	<appender name="kafkaApd" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_HOME}/kafka.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>kafka.%i.log.zip</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>1024MB</maxFileSize>
+		</triggeringPolicy>
+	</appender>
+	<logger name="kafka" level="INFO">
+		<appender-ref ref="kafkaApd" />
+	</logger>
+<logger name="com.hbc.api.trade.order.mapping" level="DEBUG" />
+	<logger name="com.hbc.api.trade.bdata.mapper" level="DEBUG" />
+	<logger name="com.hbc.api.fund.biz.mapping" level="DEBUG" />
+	<logger name="com.hbc.api.fund.account.mapping" level="DEBUG" />
+	<logger name="org.apache" level="WARN" />
+	<logger name="com.mchange" level="WARN" />
+	<logger name="o.s" level="WARN" />
+
+	<!-- 日志输出级别 -->
+	<root level="debug">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="payApd" />
+		<appender-ref ref="kafkaApd" />
+	</root>
+</configuration>

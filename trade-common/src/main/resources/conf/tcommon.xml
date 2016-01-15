@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd" default-autowire="byName">
+
+	<context:component-scan base-package="com.hbc.api.trade">
+	</context:component-scan>
+	<bean class="com.hbc.api.trade.bdata.common.kafka.producer.KafkaProducerService">
+		<constructor-arg name="brokenListStr">
+			<value>${kafka.brokenListStr}</value>
+		</constructor-arg>
+	</bean>
+	<import resource="classpath:conf/common-dao.xml"/>
+	<import resource="classpath:conf/common-httpclient.xml"/>
+	<import resource="classpath:conf/redis.xml"/>
+	<import resource="classpath:conf/cache.xml"/>
+</beans>

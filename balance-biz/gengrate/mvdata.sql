@@ -1,0 +1,2 @@
+delete  from fund_account;
+Insert into fund_account(account_no,account_mobile,fund_account.account_status,fund_account.amount,fund_account.frozen_amount) select u.user_id,u.mobile,'1','0','0' from `user` as u;

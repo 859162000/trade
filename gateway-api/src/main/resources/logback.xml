@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="15 seconds">
+    <property name="LOG_HOME" value="${logDir:-logs}" />
+    <property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %X{token:--} [%t] %C.%M\\(%L\\) | %m%n" />
+    <appender name="ROLLING"
+        class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/project.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/project.log.%d</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+    
+    <root level="INFO">
+        <appender-ref ref="ROLLING" />
+    </root>
+    <logger name="com.hbc.api.trade.order.mapping" level="DEBUG" />
+    <logger name="org.apache" level="WARN" />
+</configuration>

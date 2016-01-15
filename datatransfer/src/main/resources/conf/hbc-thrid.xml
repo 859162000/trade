@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<bean id="hbcThridDatasource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${jdbc.hbcFinal.driver}" />
+		<property name="jdbcUrl" value="${jdbc.Thrid.url}" />
+		<property name="user" value="${jdbc.hbcFinal.username}" />
+		<property name="password" value="${jdbc.hbcFinal.password}" />
+		<property name="initialPoolSize" value="${jdbc.hbcFinal.datasource.initialPoolSize}" />
+		<property name="minPoolSize" value="${jdbc.hbcFinal.datasource.minPoolSize}" />
+		<property name="maxPoolSize" value="${jdbc.hbcFinal.datasource.maxPoolSize}" />
+		<!-- 最大空闲时间,单位:秒 -->
+		<property name="maxIdleTime" value="60" />
+		<property name="acquireIncrement" value="1" />
+		<property name="maxStatements" value="0" />
+		<!-- 单位:秒 -->
+		<property name="idleConnectionTestPeriod" value="60" />
+		<!-- 从数据库获取新连接失败后，重复尝试获取的次数 -->
+		<property name="acquireRetryAttempts" value="10" />
+		<property name="breakAfterAcquireFailure" value="false" />
+		<!-- 在取得连接时测试连接的有效性，默认为false -->
+		<property name="testConnectionOnCheckin" value="true" />
+		<!-- 在每个connection提交时是否校验其有效性。默认为false -->
+		<property name="testConnectionOnCheckout" value="false" />
+		<property name="checkoutTimeout" value="50000" />
+		<property name="preferredTestQuery" value="SELECT 1 FROM DUAL" />
+	</bean>
+	<bean id="hbcThridSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="hbcThridDatasource" />
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.hbc.data.trade.transfer.mapping.thirdparty" />
+		<property name="sqlSessionFactory" ref="hbcThridSqlSessionFactory" />
+	</bean>
+	
+</beans>

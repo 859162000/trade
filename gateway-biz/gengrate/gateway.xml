@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+	<!-- classPathEntry:数据库的JDBC驱动 -->
+	<classPathEntry location="D:\dev\hbc\svn\java\gateway\trunk\gateway-biz\gengrate\mysql-connector-java-5.1.30.jar" />
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<!-- 去除自动生成的注释 -->
+		<plugin type="org.mybatis.generator.plugins.MySQLPaginationPlugin" >
+			<property name="pageClassPath" value="com.hbc.api.trade.bdata.common.Page"/>
+		</plugin>
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<commentGenerator>
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.1.7:3306/hbc_new?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=UTF-8" userId="cclx"
+			password="cclx123456">
+		</jdbcConnection>
+
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- targetProject:自动生成代码的位置 -->
+		<javaModelGenerator targetPackage="com.hbc.api.gateway.mapping.gen.bean"
+			targetProject="D:\dev\hbc\svn\java\trade\trunk\gateway-biz\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+
+		<sqlMapGenerator targetPackage="com.hbc.api.gateway.mapping.gen"
+			targetProject="D:\dev\hbc\svn\java\trade\trunk\gateway-biz\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+
+		<javaClientGenerator type="ANNOTATEDMAPPER"
+			targetPackage="com.hbc.api.gateway.mapping.gen" targetProject="D:\dev\hbc\svn\java\trade\trunk\gateway-biz\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="exampleMethodVisibility" value="false" />
+		</javaClientGenerator>
+		<!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
+		<table schema="" tableName="gateway_ipn" domainObjectName="GatewayIpn"></table>
+	</context>
+
+</generatorConfiguration>

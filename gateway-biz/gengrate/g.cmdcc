@@ -1,0 +1,8 @@
+D:
+cd D:\dev\hbc\svn\java\trade\trunk\gateway-biz\gengrate
+java -jar D:\dev\hbc\env\mybatisgen\mybatis-generator-core-1.3.3-SNAPSHOT.jar  -configfile gateway.xml  -overwrite
+
+
+D:
+cd D:\dev\hbc\svn\java\tradeservice
+mvn clean install -Dmaven.test.skip=true -DskipTests=true -Denv=dev

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+	<!-- classPathEntry:数据库的JDBC驱动 -->
+	<classPathEntry location="D:\dev\hbc\sourcecode\mybatis-generator-usage\lib\mysql-connector-java-5.1.6-bin.jar" />
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" />
+		</plugin>
+		<plugin type="org.mybatis.generator.plugins.MySQLPaginationPlugin" >
+			<property name="pageClassPath" value="com.hbc.data.trade.transfer.util.Page"/>
+		</plugin>
+		<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<!-- 去除自动生成的注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.1.13:3307/hbc_final" userId="lukangle" password="d1E40Cd615f33E63">
+		</jdbcConnection>
+		<!-- <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/trade" userId="root" password="1"> </jdbcConnection> -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- targetProject:自动生成代码的位置 -->
+		<javaModelGenerator targetPackage="com.hbc.data.trade.transfer.mapping.hbcfund.gen.bean" targetProject="D:\dev\hbc\svn\java\trade\trunk\datatransfer\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+
+		<sqlMapGenerator targetPackage="com.hbc.data.trade.transfer.mapping.hbcfund.gen" targetProject="D:\dev\hbc\svn\java\trade\trunk\datatransfer\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+
+		<javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="com.hbc.data.trade.transfer.mapping.hbcfund.gen" targetProject="D:\dev\hbc\svn\java\trade\trunk\datatransfer\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="exampleMethodVisibility" value="false" />
+		</javaClientGenerator>
+		<!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
+
+
+		<table schema="" tableName="agencyaccount" domainObjectName="FinalAgencyAccount"></table>
+		<table schema="" tableName="agencyaccountlog" domainObjectName="FinalAgencyAccountlog"></table>
+		<table schema="" tableName="agentaccount" domainObjectName="FinalAgentAccount"></table>
+		<table schema="" tableName="agentaccountlog" domainObjectName="FinalAgentaccountLog"></table>
+		<table schema="" tableName="guideaccount" domainObjectName="FinalGuideAccount"></table>
+		<table schema="" tableName="guideaccountlog" domainObjectName="FinalGuideAccountLog"></table>
+		<table schema="" tableName="guidedraw" domainObjectName="FinalGuidedraw"></table>
+		<table schema="" tableName="sysaccount" domainObjectName="FinalSysAccount"></table>
+		<table schema="" tableName="sysaccountlog" domainObjectName="FinalSysAccountLog"></table>
+	</context>
+
+</generatorConfiguration>
